@@ -2,7 +2,7 @@
 
 > Support Arm64, AMD64 (x86, x64) multi-arch
 
-[![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strpi)
+[![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strapi)
 
 > Docker image for strapi version 4 (latest version)
 
