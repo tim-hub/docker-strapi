@@ -2,9 +2,9 @@ name: Publish Docker Image
 
 on:
   push:
-    paths:
-      - 'release-versions/*'
-#    branches: [ "main" ]
+#    paths:
+#      - 'release-versions/*'
+    branches: [ "main" ]
 
 
 env:
@@ -19,8 +19,8 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write # required to release
+      packages: write # required to publish image
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
