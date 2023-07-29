@@ -1,17 +1,16 @@
-# strapi (v4+) containerized
+# strapi containerized
 
-![Strapi](https://github.com/naskio/docker-strapi/blob/main/assets/PNG.logo.purple.dark.png?raw=true)
+> Support Arm64, AMD64, ArmV7 multi-arch
+
+[![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strpi)
 
 > Docker image for strapi version 4 (latest version)
 
 API creation made simple, secure and fast. The most advanced open-source Content Management Framework to build powerful
 API with no effort.
 
-[GitHub repository](https://github.com/naskio/docker-strapi)
+[GitHub repository](https://github.com/tim-hub/docker-strapi)
 
-[Docker Hub](https://hub.docker.com/r/naskio/strapi)
-
-[![Docker Pulls](https://img.shields.io/docker/pulls/naskio/strapi.svg?style=for-the-badge)](https://hub.docker.com/r/naskio/strapi)
 
 ---
 
@@ -23,22 +22,22 @@ Using Docker Compose, create `docker-compose.yml` file with the following conten
 version: "3"
 services:
   strapi:
-    image: naskio/strapi
+    image: tim-hub/strapi
     environment:
       NODE_ENV: development # or production
     ports:
       - "1337:1337"
-    # volumes:
-    #   - ./app:/srv/app # mount an existing strapi project
+    volumes:
+      - ./app:/srv/app # mount an existing strapi project
 ```
 
 or using Docker:
 
 ```shell
-docker run -d -p 1337:1337 naskio/strapi --env NODE_ENV=development
+docker run -d -p 1337:1337 tim-hub/strapi --env NODE_ENV=development
 ```
 
-You can find more example on [GitHub](https://github.com/naskio/docker-strapi/tree/main/examples).
+You can find more example on [GitHub](https://github.com/tim-hub/docker-strapi/tree/main/examples).
 
 ---
 
