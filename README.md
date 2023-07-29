@@ -1,6 +1,6 @@
 # strapi containerized
 
-> Support Arm64, AMD64, ArmV7 multi-arch
+> Support Arm64, AMD64 (x86, x64) multi-arch
 
 [![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strpi)
 
