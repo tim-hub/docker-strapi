@@ -108,11 +108,9 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          TAGS: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-            ${{ steps.meta.outputs.tags }}
         with:
-          tag_name: ${TAGS}
+          tag_name: v${{steps.vars.outputs.tag}}
           release_name: Release ${{steps.vars.outputs.tag}}
           body: strapi v${{steps.vars.outputs.tag}}
+          draft: false
+          prerelease: false
