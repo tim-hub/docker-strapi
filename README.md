@@ -1,7 +1,8 @@
 # Docker Strapi 
 
-> Unofficial Strapi Docker Image, support v4.11+
-> - Supporting multiple arch (multiple platform) Arm64, AMD64 (x86, x64).
+> Unofficial Strapi Docker Image, supports Strapi 4.11.0+
+> - Supporting multiple arch (multiple platform) Arm64, AMD64 (x86, x64)
+> - Based on alpine
 
 [![Repo](https://img.shields.io/badge/Docker%20Strapi%20Github%20Repo-8A2BE2?style=for-the-badge)](https://github.com/tim-hub/docker-strapi) [![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strapi/releases) 
 
