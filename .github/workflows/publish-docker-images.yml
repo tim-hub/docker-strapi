@@ -2,8 +2,9 @@ name: Publish Docker Image
 
 on:
   push:
-    paths:
-      - 'release-versions/*'
+#    paths:
+#      - 'release-versions/*'
+    branches: [ "main" ]
 
 
 env:
