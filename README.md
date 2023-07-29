@@ -1,15 +1,16 @@
-# strapi containerized
+# Docker Strapi 
 
-> Support Arm64, AMD64 (x86, x64) multi-arch
+> Unofficial Strapi Docker Image, support v4.11+
+> - Supporting multiple arch (multiple platform) Arm64, AMD64 (x86, x64).
 
-[![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strapi)
+[![Repo](https://img.shields.io/badge/Docker%20Strapi%20Github%20Repo-8A2BE2?style=for-the-badge)](https://github.com/tim-hub/docker-strapi) [![GitHub release](https://img.shields.io/github/release/tim-hub/docker-strapi.svg?style=for-the-badge)](https://github.com/tim-hub/docker-strapi/releases) 
 
-> Docker image for strapi version 4 (latest version)
+
 
 API creation made simple, secure and fast. The most advanced open-source Content Management Framework to build powerful
 API with no effort.
 
-[GitHub repository](https://github.com/tim-hub/docker-strapi)
+
 
 
 ---
