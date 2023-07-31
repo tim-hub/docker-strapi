@@ -45,7 +45,7 @@ if [ "$*" = "strapi" ]; then
   fi
 
   echo "Starting your app (with ${STRAPI_MODE:-develop})..."
-  exec strapi "${STRAPI_MODE:-develop}"
+  exec strapi build && strapi "${STRAPI_MODE:-develop}"
 
 else
   exec "$@"
