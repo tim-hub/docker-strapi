@@ -1,8 +1,10 @@
-name: Publish Git Commit Ref Images
+name: Publish Docker Image
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - 'release-versions/*'
+#    branches: [ "main" ]
 
 
 env:
@@ -17,7 +19,7 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # required to release
       packages: write # required to publish image
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
@@ -74,10 +76,12 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ steps.meta.outputs.tags }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64,linux/arm64, linux/arm/v7
+          platforms: linux/amd64,linux/arm64
 
 
       # Sign the resulting Docker image digest except on PRs.
@@ -90,8 +94,23 @@ jobs:
         env:
           # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           TAGS: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.tag }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ steps.meta.outputs.tags }}
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+
+      - name: Create Release in GitHub
+        id: create_release
+        uses: actions/create-release@v1
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v${{steps.vars.outputs.tag}}
+          release_name: Release ${{steps.vars.outputs.tag}}
+          body: strapi v${{steps.vars.outputs.tag}}
+          draft: false
+          prerelease: false
